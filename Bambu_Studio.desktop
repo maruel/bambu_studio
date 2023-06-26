@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=PATH/Bambu_Studio.AppImage
+Name=Bambu Studio
+Comment=Prints stuff in 3D
+Icon=PATH/BambuStudio_128px.png
