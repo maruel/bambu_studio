@@ -16,11 +16,15 @@ if [ ! -f "$LINK" ]; then
   sed -e "s#PATH#$PWD#g" Bambu_Studio.desktop > "$LINK"
 fi
 
-# TODO: Should use jq or python. This is not safe.
-URL="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/latest \
-  | grep '"browser_download_url"' \
-  | grep ubuntu \
-  | grep -oh 'https.*AppImage')"
+#DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases)"
+#DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/latest)"
+# v01.07.01.62
+DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/114743228)"
+#echo "$DATA"
+SCRIPT="import json,sys;
+e = [i['browser_download_url'] for i in json.load(sys.stdin)['assets']];
+print([i for i in e if 'ubuntu' in i][0]);"
+URL="$(echo "$DATA" | python3 -c "$SCRIPT")"
 FILE="$(basename $URL)"
 
 if [ -f "$FILE" ]; then
