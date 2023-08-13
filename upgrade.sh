@@ -16,10 +16,13 @@ if [ ! -f "$LINK" ]; then
   sed -e "s#PATH#$PWD#g" Bambu_Studio.desktop > "$LINK"
 fi
 
+# Take the latest version. It happened in the past that they forgot to provide
+# the Ubuntu build for a version, it seems to be 100% manual. In this case, use
+# a specific older version.
+DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/latest)"
 #DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases)"
-#DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/latest)"
 # v01.07.01.62
-DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/114743228)"
+#DATA="$(curl -s https://api.github.com/repos/bambulab/BambuStudio/releases/114743228)"
 #echo "$DATA"
 SCRIPT="import json,sys;
 e = [i['browser_download_url'] for i in json.load(sys.stdin)['assets']];
