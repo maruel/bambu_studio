@@ -12,6 +12,9 @@ Run:
 
 Then press the WinKey, type Bambu, right click and "Add to Favorites"
 
+May have to accept the ssl certificate, and install en_GB.UTF-8 locale.
+
+
 ## License
 
 `BambuStudio_128px.png` source: 

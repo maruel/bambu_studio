@@ -7,6 +7,11 @@ set -eu
 
 cd "$(dirname $0)"
 
+if [ ! -f /lib/x86_64-linux-gnu/libfuse.so.2 ]; then
+  echo "sudo apt install libfuse2"
+  exit 1
+fi
+
 # Always recreate the app just in case.
 # It refers to "Bambu_Studio.AppImage" instead of the real file name. This is
 # because the desktop file is cached and not refreshed when updated. This makes
