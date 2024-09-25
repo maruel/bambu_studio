@@ -16,6 +16,16 @@ Then press the WinKey, type Bambu, right click and "Add to Favorites"
 May have to accept the ssl certificate, and install en_GB.UTF-8 locale.
 
 
+## ChromeOS
+
+Linux on ChromeOS doesn't support fuse. To run without fuse, do:
+
+```
+sudo apt install libwebkit2gtk-4.0-dev
+./Bambu_Studio.AppImage --appimage-extract
+./squashfs-root/AppRun
+```
+
 ## License
 
 `BambuStudio_128px.png` source:

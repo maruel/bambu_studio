@@ -18,6 +18,7 @@ fi
 # it so upgrading doesn't require to restart the user session.
 LINK="$HOME/.local/share/applications/Bambu_Studio.desktop"
 if [ ! -f "$LINK" ]; then
+  mkdir -p "$HOME/.local/share/applications"
   sed -e "s#PATH#$PWD#g" Bambu_Studio.desktop > "$LINK"
 fi
 
